@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   async headers() {
     return [
       {
@@ -19,6 +16,10 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+  },
+  webpack: config => {
+    config.externals.push("pino", "pino-pretty", "lokijs", "encoding", "@react-native-async-storage/async-storage");
+    return config;
   },
 };
 
