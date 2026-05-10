@@ -22,7 +22,13 @@ const nextConfig: NextConfig = {
       },
     ];
   },
- webpack: config => {
+webpack: (config, { isServer }) => {
+  if (!isServer) {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      "@react-native-async-storage/async-storage": false,
+    };
+  }
   config.externals.push("pino-pretty", "lokijs", "encoding", "@react-native-async-storage/async-storage");
   return config;
 },
