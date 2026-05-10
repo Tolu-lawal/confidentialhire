@@ -22,10 +22,10 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  webpack: config => {
-    config.externals.push("pino-pretty", "lokijs", "encoding");
-    return config;
-  },
+ webpack: config => {
+  config.externals.push("pino-pretty", "lokijs", "encoding", "@react-native-async-storage/async-storage");
+  return config;
+},
 };
 
 const isIpfs = process.env.NEXT_PUBLIC_IPFS_BUILD === "true";
