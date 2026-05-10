@@ -2,13 +2,11 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { DappWrapperWithProviders } from "~~/components/DappWrapperWithProviders";
 import { ThemeProvider } from "~~/components/ThemeProvider";
 import "~~/styles/globals.css";
-import { getMetadata } from "~~/utils/helper/getMetadata";
 
-export const metadata = getMetadata({
-  title: "Zama Template",
-  description: "Built with FHEVM",
-});
-
+export const metadata = {
+  title: "ConfidentialHire",
+  description: "Privacy-preserving freelance marketplace built with FHE encryption on Ethereum Sepolia",
+};
 const DappWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <html suppressHydrationWarning className={``}>
