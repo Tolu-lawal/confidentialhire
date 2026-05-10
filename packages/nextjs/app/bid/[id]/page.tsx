@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, use } from "react";
+import { useState, } from "react";
 import { useAccount, useReadContract } from "wagmi";
 import Link from "next/link";
 import { useEncryptAndSubmitBid } from "~~/hooks/useFHEEncryption";
@@ -16,8 +16,8 @@ const BID_VAULT_ABI = [
   { name: "getBidCount", type: "function", stateMutability: "view", inputs: [{ name: "jobId", type: "uint256" }], outputs: [{ name: "", type: "uint256" }] },
 ] as const;
 
-export default function BidPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export default function BidPage({ params }: { params: { id: string } }) {
+  const { id } = params;
   const { isConnected } = useAccount();
   const [bidAmount, setBidAmount] = useState(200);
   const [note, setNote] = useState("");
