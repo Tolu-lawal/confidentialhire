@@ -10,7 +10,7 @@ import { ReputationLedger as ReputationLedger_LOCAL } from "./ReputationLedger.l
 
 const REMOTE = {
   11155111: {
-    address: "0x11b3fEF3f9a1c4bb8163C8584327aA8b3C6084fa",
+    address: "0xDfaA5deb44b085f4f0C187c5346622b54CE8fb84",
     abi: [
       {
         type: "constructor",
@@ -265,7 +265,7 @@ const REMOTE = {
         inputs: [],
       },
     ],
-    deployedOnBlock: 10751383,
+    deployedOnBlock: 10805706,
   },
 } as const;
 

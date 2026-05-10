@@ -10,7 +10,7 @@ import { BidVault as BidVault_LOCAL } from "./BidVault.local";
 
 const REMOTE = {
   11155111: {
-    address: "0xAE23fa84931eB0b7f73Ba127f8eF06187b7E4055",
+    address: "0x60Dd6FFEfC52b6acA422163e0E4E88174c9F7F7e",
     abi: [
       {
         type: "constructor",
@@ -22,38 +22,6 @@ const REMOTE = {
           },
         ],
         stateMutability: "nonpayable",
-      },
-      {
-        type: "function",
-        name: "confidentialProtocolId",
-        inputs: [],
-        outputs: [
-          {
-            name: "",
-            type: "uint256",
-            internalType: "uint256",
-          },
-        ],
-        stateMutability: "view",
-      },
-      {
-        type: "function",
-        name: "currentLowestBidder",
-        inputs: [
-          {
-            name: "",
-            type: "uint256",
-            internalType: "uint256",
-          },
-        ],
-        outputs: [
-          {
-            name: "",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-        stateMutability: "view",
       },
       {
         type: "function",
@@ -95,49 +63,6 @@ const REMOTE = {
       },
       {
         type: "function",
-        name: "getEncryptedMinBid",
-        inputs: [
-          {
-            name: "jobId",
-            type: "uint256",
-            internalType: "uint256",
-          },
-        ],
-        outputs: [
-          {
-            name: "",
-            type: "bytes32",
-            internalType: "euint64",
-          },
-        ],
-        stateMutability: "view",
-      },
-      {
-        type: "function",
-        name: "getMyBid",
-        inputs: [
-          {
-            name: "jobId",
-            type: "uint256",
-            internalType: "uint256",
-          },
-          {
-            name: "freelancer",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-        outputs: [
-          {
-            name: "",
-            type: "bytes32",
-            internalType: "euint64",
-          },
-        ],
-        stateMutability: "view",
-      },
-      {
-        type: "function",
         name: "jobRegistry",
         inputs: [],
         outputs: [
@@ -151,24 +76,6 @@ const REMOTE = {
       },
       {
         type: "function",
-        name: "refundLosers",
-        inputs: [
-          {
-            name: "jobId",
-            type: "uint256",
-            internalType: "uint256",
-          },
-          {
-            name: "winner",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-        outputs: [],
-        stateMutability: "nonpayable",
-      },
-      {
-        type: "function",
         name: "submitBid",
         inputs: [
           {
@@ -179,7 +86,7 @@ const REMOTE = {
           {
             name: "encryptedAmount",
             type: "bytes32",
-            internalType: "externalEuint64",
+            internalType: "bytes32",
           },
           {
             name: "inputProof",
@@ -206,57 +113,11 @@ const REMOTE = {
             indexed: true,
             internalType: "address",
           },
-          {
-            name: "bidIndex",
-            type: "uint256",
-            indexed: false,
-            internalType: "uint256",
-          },
         ],
         anonymous: false,
-      },
-      {
-        type: "event",
-        name: "BidsRefunded",
-        inputs: [
-          {
-            name: "jobId",
-            type: "uint256",
-            indexed: true,
-            internalType: "uint256",
-          },
-          {
-            name: "count",
-            type: "uint256",
-            indexed: false,
-            internalType: "uint256",
-          },
-        ],
-        anonymous: false,
-      },
-      {
-        type: "error",
-        name: "SenderNotAllowedToUseHandle",
-        inputs: [
-          {
-            name: "handle",
-            type: "bytes32",
-            internalType: "bytes32",
-          },
-          {
-            name: "sender",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-      },
-      {
-        type: "error",
-        name: "ZamaProtocolUnsupported",
-        inputs: [],
       },
     ],
-    deployedOnBlock: 10751383,
+    deployedOnBlock: 10805706,
   },
 } as const;
 

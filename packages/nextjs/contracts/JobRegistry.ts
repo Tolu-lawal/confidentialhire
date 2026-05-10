@@ -13,61 +13,6 @@ const REMOTE = {
     address: "0xd6a56546804d7B319DA9e7720034CB55Ada8d4c6",
     abi: [
       {
-        type: "constructor",
-        inputs: [
-          {
-            name: "_bidVault",
-            type: "address",
-            internalType: "address",
-          },
-          {
-            name: "_reputationLedger",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-        stateMutability: "nonpayable",
-      },
-      {
-        type: "function",
-        name: "bidVault",
-        inputs: [],
-        outputs: [
-          {
-            name: "",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-        stateMutability: "view",
-      },
-      {
-        type: "function",
-        name: "closeJob",
-        inputs: [
-          {
-            name: "jobId",
-            type: "uint256",
-            internalType: "uint256",
-          },
-        ],
-        outputs: [],
-        stateMutability: "nonpayable",
-      },
-      {
-        type: "function",
-        name: "confidentialProtocolId",
-        inputs: [],
-        outputs: [
-          {
-            name: "",
-            type: "uint256",
-            internalType: "uint256",
-          },
-        ],
-        stateMutability: "view",
-      },
-      {
         type: "function",
         name: "escrow",
         inputs: [
@@ -100,7 +45,7 @@ const REMOTE = {
           {
             name: "",
             type: "bytes32",
-            internalType: "euint64",
+            internalType: "bytes32",
           },
         ],
         stateMutability: "view",
@@ -179,7 +124,7 @@ const REMOTE = {
           {
             name: "encryptedBudget",
             type: "bytes32",
-            internalType: "externalEuint64",
+            internalType: "bytes32",
           },
           {
             name: "inputProof",
@@ -213,19 +158,6 @@ const REMOTE = {
         ],
         outputs: [],
         stateMutability: "nonpayable",
-      },
-      {
-        type: "function",
-        name: "reputationLedger",
-        inputs: [],
-        outputs: [
-          {
-            name: "",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-        stateMutability: "view",
       },
       {
         type: "function",
@@ -265,19 +197,6 @@ const REMOTE = {
             name: "amount",
             type: "uint256",
             indexed: false,
-            internalType: "uint256",
-          },
-        ],
-        anonymous: false,
-      },
-      {
-        type: "event",
-        name: "JobClosed",
-        inputs: [
-          {
-            name: "jobId",
-            type: "uint256",
-            indexed: true,
             internalType: "uint256",
           },
         ],
@@ -333,29 +252,8 @@ const REMOTE = {
         ],
         anonymous: false,
       },
-      {
-        type: "error",
-        name: "SenderNotAllowedToUseHandle",
-        inputs: [
-          {
-            name: "handle",
-            type: "bytes32",
-            internalType: "bytes32",
-          },
-          {
-            name: "sender",
-            type: "address",
-            internalType: "address",
-          },
-        ],
-      },
-      {
-        type: "error",
-        name: "ZamaProtocolUnsupported",
-        inputs: [],
-      },
     ],
-    deployedOnBlock: 10751383,
+    deployedOnBlock: 10805706,
   },
 } as const;
 

@@ -2,7 +2,6 @@
 pragma solidity ^0.8.24;
 
 contract BidVault {
-
     struct Bid {
         address freelancer;
         uint256 submittedAt;
@@ -20,19 +19,11 @@ contract BidVault {
         jobRegistry = _jobRegistry;
     }
 
-    function submitBid(
-        uint256 jobId,
-        bytes32 encryptedAmount,
-        bytes calldata inputProof
-    ) external {
+    function submitBid(uint256 jobId, bytes32 encryptedAmount, bytes calldata inputProof) external {
         require(_bidIndex[jobId][msg.sender] == 0, "already bid");
 
         uint256 idx = _bids[jobId].length;
-        _bids[jobId].push(Bid({
-            freelancer: msg.sender,
-            submittedAt: block.timestamp,
-            exists: true
-        }));
+        _bids[jobId].push(Bid({freelancer: msg.sender, submittedAt: block.timestamp, exists: true}));
         _bidIndex[jobId][msg.sender] = idx + 1;
 
         emit BidSubmitted(jobId, msg.sender);

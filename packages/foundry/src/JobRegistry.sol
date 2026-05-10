@@ -2,7 +2,11 @@
 pragma solidity ^0.8.24;
 
 contract JobRegistry {
-    enum JobStatus { Open, Closed, Completed }
+    enum JobStatus {
+        Open,
+        Closed,
+        Completed
+    }
 
     struct Job {
         address client;
@@ -63,29 +67,34 @@ contract JobRegistry {
         return _encryptedBudgets[jobId];
     }
 
-    function selectWinner(uint256 jobId, address winner)
-        external jobExists(jobId) onlyClient(jobId)
-    {
+    function selectWinner(uint256 jobId, address winner) external jobExists(jobId) onlyClient(jobId) {
         _jobs[jobId].winner = winner;
         _jobs[jobId].status = JobStatus.Completed;
         emit WinnerSelected(jobId, winner);
     }
 
-    function releaseEscrow(uint256 jobId)
-        external jobExists(jobId) onlyClient(jobId)
-    {
+    function releaseEscrow(uint256 jobId) external jobExists(jobId) onlyClient(jobId) {
         require(_jobs[jobId].winner != address(0), "no winner");
         uint256 payout = escrow[jobId] * 95 / 100;
         escrow[jobId] = 0;
-        (bool ok,) = _jobs[jobId].winner.call{ value: payout }("");
+        (bool ok,) = _jobs[jobId].winner.call{value: payout}("");
         require(ok, "transfer failed");
         emit EscrowReleased(jobId, _jobs[jobId].winner, payout);
     }
 
-    function getJob(uint256 jobId) external view jobExists(jobId) returns (
-        address client, string memory title, string memory description,
-        uint256 deadline, JobStatus status, address winner
-    ) {
+    function getJob(uint256 jobId)
+        external
+        view
+        jobExists(jobId)
+        returns (
+            address client,
+            string memory title,
+            string memory description,
+            uint256 deadline,
+            JobStatus status,
+            address winner
+        )
+    {
         Job storage job = _jobs[jobId];
         return (job.client, job.title, job.description, job.deadline, job.status, job.winner);
     }
