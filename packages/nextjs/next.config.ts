@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  turbopack: {},
   devIndicators: false,
   onDemandEntries: {
     maxInactiveAge: 25 * 1000,
